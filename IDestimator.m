@@ -6,7 +6,7 @@ function [pxFiltrado,pyFiltrado] = IDestimator(matriz,plota,color,thickness)
 %otherwise, vectors px and py will be returned to the workspace.
 
 %This function is based on the method proposed by Grassberger and Procaccia
-%(1983) to estimate intrinsic dimensionality (ID) and adapted by Montalv„o
+%(1983) to estimate intrinsic dimensionality (ID) and adapted by Montalv√£o
 %et al. (2020) in which to get the ID, the number of samples C(r) that fall
 %inside a hyper-cube of edge r is counted as r changes, the ID of the data
 %is found by the slope of the curve on the plot log2(r) versus log2(C(r)).
@@ -14,7 +14,7 @@ function [pxFiltrado,pyFiltrado] = IDestimator(matriz,plota,color,thickness)
 %(usually found by the differential entropy of the data divided by the
 %number of samples). Refer to Campadelli (2015) for more information on how
 %to select r. This function also includes a bias compensation method
-%developed in Montalv„o et al. (2020).
+%developed in Montalv√£o et al. (2020).
 
 if nargin<2
     plota=1;
@@ -37,7 +37,7 @@ lr = length(r);
 py = log2((1:lr)/lr);
 px = log2(rSorted);
 
-% Remove duplicates or values to close to each other
+% Remove duplicates and values to close to each other
 [pxFiltrado, ipx, ~] = unique(round(px,3));
 pxFiltrado = pxFiltrado';
 pyFiltrado = py(ipx)';
@@ -99,7 +99,7 @@ end
 
 % ----------------------Bias correction part-------------------------------
 
-% Implementation of the bias compensation method developed in Montalv„o et
+% Implementation of the bias compensation method developed in Montalv√£o et
 % al. (2020)
 
 d = idmedcentro; %prototype;
